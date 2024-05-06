@@ -25,6 +25,9 @@ classifiers = [
     "Programming Language :: Python :: 3.12"
 ]
 
+[project.scripts]
+reiuji = "reiuji_cli:app"
+
 [project.urls]
 Homepage = "https://github.com/MtCelesteMa/reiuji-cli"
 "Bug Tracker" = "https://github.com/MtCelesteMa/reiuji-cli/issues"
