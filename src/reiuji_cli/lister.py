@@ -1,4 +1,4 @@
-"""CLI for listing components."""
+"""CLI for listing multiblock components."""
 
 from . import utils
 
@@ -22,6 +22,7 @@ def list_nco_turbine_rotor_components(
     components_file: typing.Annotated[typing.Optional[pathlib.Path], typer.Option("--components", "-C", help="Path to the components file.")] = None,
     output: typing.Annotated[typing.Optional[pathlib.Path], typer.Option("--output", "-O", help="Path to the output file.")] = None,
 ) -> None:
+    """List the components for a NuclearCraft: Overhauled turbine rotor."""
     components = utils.load_component_list(components_file)
     if isinstance(components, type(None)):
         components = reiuji.designer.overhauled.turbine_rotor.models.DEFAULT_COMPONENTS
@@ -40,6 +41,7 @@ def list_nco_turbine_dynamo_components(
     components_file: typing.Annotated[typing.Optional[pathlib.Path], typer.Option("--components", "-C", help="Path to the components file.")] = None,
     output: typing.Annotated[typing.Optional[pathlib.Path], typer.Option("--output", "-O", help="Path to the output file.")] = None,
 ) -> None:
+    """List the components for a NuclearCraft: Overhauled turbine dynamo."""
     components = utils.load_component_list(components_file)
     if isinstance(components, type(None)):
         components = reiuji.designer.overhauled.turbine_dynamo.models.DEFAULT_COMPONENTS
@@ -62,6 +64,7 @@ def list_qmd_linear_components(
     components_file: typing.Annotated[typing.Optional[pathlib.Path], typer.Option("--components", "-C", help="Path to the components file.")] = None,
     output: typing.Annotated[typing.Optional[pathlib.Path], typer.Option("--output", "-O", help="Path to the output file.")] = None,
 ) -> None:
+    """List the components for a QMD linear accelerator."""
     components = utils.load_component_list(components_file)
     if isinstance(components, type(None)):
         components = reiuji.designer.qmd.linear.models.DEFAULT_COMPONENTS
@@ -80,6 +83,7 @@ def list_qmd_synchrotron_components(
     components_file: typing.Annotated[typing.Optional[pathlib.Path], typer.Option("--components", "-C", help="Path to the components file.")] = None,
     output: typing.Annotated[typing.Optional[pathlib.Path], typer.Option("--output", "-O", help="Path to the output file.")] = None,
 ) -> None:
+    """List the components for a QMD synchrotron."""
     components = utils.load_component_list(components_file)
     if isinstance(components, type(None)):
         components = reiuji.designer.qmd.synchrotron.models.DEFAULT_COMPONENTS
@@ -98,6 +102,7 @@ def list_qmd_nucleosynthesis_components(
     components_file: typing.Annotated[typing.Optional[pathlib.Path], typer.Option("--components", "-C", help="Path to the components file.")] = None,
     output: typing.Annotated[typing.Optional[pathlib.Path], typer.Option("--output", "-O", help="Path to the output file.")] = None,
 ) -> None:
+    """List the components for a QMD nucleosynthesis chamber."""
     components = utils.load_component_list(components_file)
     if isinstance(components, type(None)):
         components = reiuji.designer.qmd.nucleosynthesis.models.DEFAULT_COMPONENTS
