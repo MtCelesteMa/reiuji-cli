@@ -7,7 +7,6 @@ import pathlib
 
 import reiuji
 import typer
-from ortools.sat.python import cp_model
 import rich
 
 
