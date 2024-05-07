@@ -5,6 +5,7 @@ import pathlib
 import json
 
 import rich
+import rich.markup
 import reiuji
 from ortools.sat.python import cp_model
 from ortools.sat import cp_model_pb2
@@ -37,6 +38,21 @@ def write_component_list(components: list[reiuji.components.types.Component], pa
             json.dump(ser.model_dump()["seq"], file, indent=4)
     else:
         rich.print(f"[yellow][bold]WARNING:[/bold] Unsupported file format: {path.suffix}[/yellow]")
+
+
+def format_text_rich(text: str, *, bold: bool = False, italic: bool = False, color: tuple[int, int, int] | None = None, bg_color: tuple[int, int, int] | None = None) -> str:
+    tags = []
+    if bold:
+        tags.append("bold")
+    if italic:
+        tags.append("italic")
+    if not isinstance(color, type(None)):
+        tags.append(f"rgb({color[0]},{color[1]},{color[2]})")
+    if not isinstance(bg_color, type(None)):
+        tags.append(f"on rgb({bg_color[0]},{bg_color[1]},{bg_color[2]})")
+    if len(tags) == 0:
+        return rich.markup.escape(text)
+    return f"[{" ".join(tags)}]{rich.markup.escape(text)}[/{" ".join(tags)}]"
 
 
 def print_status(status: cp_model_pb2.CpSolverStatus) -> None:

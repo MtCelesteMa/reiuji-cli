@@ -41,7 +41,8 @@ def design_nco_turbine_rotor(
     utils.print_status(status)
     if not isinstance(design, type(None)):
         for comp in design:
-            rich.print(comp.display.rich_short_name, end=" ")
+            rich_short_name = utils.format_text_rich(comp.display.short_name, bold=comp.display.bold, italic=comp.display.italic, color=comp.display.color, bg_color=comp.display.bg_color)
+            rich.print(rich_short_name, end=" ")
         print()
         for path in output:
             utils.write_design(design, path)
@@ -74,7 +75,8 @@ def design_nco_turbine_dynamo(
     if not isinstance(design, type(None)):
         for y in range(design.shape[0]):
             for x in range(design.shape[1]):
-                rich.print(design[y, x].display.rich_short_name, end=" ")
+                rich_short_name = utils.format_text_rich(design[y, x].display.short_name, bold=design[y, x].display.bold, italic=design[y, x].display.italic, color=design[y, x].display.color, bg_color=design[y, x].display.bg_color)
+                rich.print(rich_short_name, end=" ")
             print()
         for path in output:
             utils.write_design(design, path)
@@ -131,7 +133,8 @@ def design_qmd_linear(
         for x in range(design.shape[0]):
             for y in range(design.shape[2]):
                 for z in range(design.shape[1]):
-                    rich.print(design[x, z, y].display.rich_short_name, end=" ")
+                    rich_short_name = utils.format_text_rich(design[x, z, y].display.short_name, bold=design[x, z, y].display.bold, italic=design[x, z, y].display.italic, color=design[x, z, y].display.color, bg_color=design[x, z, y].display.bg_color)
+                    rich.print(rich_short_name, end=" ")
                 print()
             print()
         for path in output:
@@ -185,7 +188,8 @@ def design_qmd_synchrotron(
         for y in range(design.shape[2]):
             for x in range(design.shape[0]):
                 for z in range(design.shape[1]):
-                    rich.print(design[x, z, y].display.rich_short_name, end=" ")
+                    rich_short_name = utils.format_text_rich(design[x, z, y].display.short_name, bold=design[x, z, y].display.bold, italic=design[x, z, y].display.italic, color=design[x, z, y].display.color, bg_color=design[x, z, y].display.bg_color)
+                    rich.print(rich_short_name, end=" ")
                 print()
             print()
         for path in output:
@@ -239,7 +243,8 @@ def design_qmd_decelerator(
         for y in range(design.shape[2]):
             for x in range(design.shape[0]):
                 for z in range(design.shape[1]):
-                    rich.print(design[x, z, y].display.rich_short_name, end=" ")
+                    rich_short_name = utils.format_text_rich(design[x, z, y].display.short_name, bold=design[x, z, y].display.bold, italic=design[x, z, y].display.italic, color=design[x, z, y].display.color, bg_color=design[x, z, y].display.bg_color)
+                    rich.print(rich_short_name, end=" ")
                 print()
             print()
         for path in output:
@@ -274,7 +279,8 @@ def design_qmd_nucleosynthesis(
         for y in range(design.shape[2]):
             for x in range(design.shape[0]):
                 for z in range(design.shape[1]):
-                    rich.print(design[x, z, y].display.rich_short_name, end=" ")
+                    rich_short_name = utils.format_text_rich(design[x, z, y].display.short_name, bold=design[x, z, y].display.bold, italic=design[x, z, y].display.italic, color=design[x, z, y].display.color, bg_color=design[x, z, y].display.bg_color)
+                    rich.print(rich_short_name, end=" ")
                 print()
             print()
         for path in output:

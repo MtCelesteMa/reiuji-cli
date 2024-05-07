@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "reiuji_cli"
 version = "0.1.0-dev"
 dependencies = [
-    "reiuji @ git+https://github.com/MtCelesteMa/reiuji.git@65529fdc1cff5f4774bb038e31c7ece9b35eff21",
+    "reiuji @ git+https://github.com/MtCelesteMa/reiuji.git@68f56fb726eea08b86bbe3cbb24c24dfbad633e5",
     "typer"
 ]
 requires-python = ">=3.12"

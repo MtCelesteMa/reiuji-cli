@@ -54,7 +54,10 @@ def list_components(
     table.add_column("Internal Name")
     table.add_column("Short Name")
     for comp in components:
-        table.add_row(comp.display.rich_full_name, comp.full_name, comp.display.rich_short_name)
+        rich_full_name = utils.format_text_rich(comp.display.full_name, bold=comp.display.bold, italic=comp.display.italic, color=comp.display.color, bg_color=comp.display.bg_color)
+        rich_internal_name = utils.format_text_rich(comp.full_name, bold=comp.display.bold, italic=comp.display.italic, color=comp.display.color, bg_color=comp.display.bg_color)
+        rich_short_name = utils.format_text_rich(comp.display.short_name, bold=comp.display.bold, italic=comp.display.italic, color=comp.display.color, bg_color=comp.display.bg_color)
+        table.add_row(rich_full_name, rich_internal_name, rich_short_name)
     rich.print(table)
     if isinstance(output, pathlib.Path):
         utils.write_component_list(components, output)
