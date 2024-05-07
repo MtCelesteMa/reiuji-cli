@@ -8,6 +8,6 @@ import typer
 
 
 app = typer.Typer(name="reiuji")
-app.add_typer(lister.lister_app, name="list")
+app.command("list")(lister.list_components)
 app.add_typer(designer.designer_app, name="design")
 app.add_typer(converter.converter_app, name="convert")

@@ -1,0 +1,817 @@
+[
+    {
+        "name": "",
+        "type": "air",
+        "placement_rule": "",
+        "short_name": "  ",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "minecraft:air",
+                "data": 0,
+                "is_tile_entity": false,
+                "properties": {}
+            }
+        },
+        "__type__": "Component"
+    },
+    {
+        "name": "",
+        "type": "casing",
+        "placement_rule": "",
+        "short_name": "X ",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_casing",
+                "data": 0,
+                "is_tile_entity": true,
+                "properties": {}
+            },
+            "glass": {
+                "name": "minecraft:glass",
+                "data": 0,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "__type__": "Component"
+    },
+    {
+        "name": "",
+        "type": "yoke",
+        "placement_rule": "",
+        "short_name": "Y ",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_yoke",
+                "data": 0,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "__type__": "Component"
+    },
+    {
+        "name": "",
+        "type": "beam",
+        "placement_rule": "",
+        "short_name": "0 ",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_beam",
+                "data": 0,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "attenuation": 0.02,
+        "__type__": "ParticleBeam"
+    },
+    {
+        "name": "copper",
+        "type": "cavity",
+        "placement_rule": "",
+        "short_name": "Cu",
+        "rich_formatting": "b",
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cavity",
+                "data": 0,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "voltage": 200,
+        "efficiency": 0.5,
+        "heat": 300,
+        "power": 500,
+        "__type__": "RFCavity"
+    },
+    {
+        "name": "magnesium_diboride",
+        "type": "cavity",
+        "placement_rule": "",
+        "short_name": "Mg",
+        "rich_formatting": "b",
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cavity",
+                "data": 1,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "voltage": 500,
+        "efficiency": 0.8,
+        "heat": 580,
+        "power": 1000,
+        "__type__": "RFCavity"
+    },
+    {
+        "name": "niobium_tin",
+        "type": "cavity",
+        "placement_rule": "",
+        "short_name": "NS",
+        "rich_formatting": "b",
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cavity",
+                "data": 2,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "voltage": 1000,
+        "efficiency": 0.9,
+        "heat": 1140,
+        "power": 2000,
+        "__type__": "RFCavity"
+    },
+    {
+        "name": "niobium_titanium",
+        "type": "cavity",
+        "placement_rule": "",
+        "short_name": "NT",
+        "rich_formatting": "b",
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cavity",
+                "data": 3,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "voltage": 2000,
+        "efficiency": 0.95,
+        "heat": 2260,
+        "power": 4000,
+        "__type__": "RFCavity"
+    },
+    {
+        "name": "bscco",
+        "type": "cavity",
+        "placement_rule": "",
+        "short_name": "BS",
+        "rich_formatting": "b",
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cavity",
+                "data": 4,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "voltage": 4000,
+        "efficiency": 0.99,
+        "heat": 4500,
+        "power": 8000,
+        "__type__": "RFCavity"
+    },
+    {
+        "name": "copper",
+        "type": "magnet",
+        "placement_rule": "",
+        "short_name": "Cu",
+        "rich_formatting": "i",
+        "block": {
+            "": {
+                "name": "qmd:accelerator_magnet",
+                "data": 0,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "strength": 0.2,
+        "efficiency": 0.5,
+        "heat": 300,
+        "power": 1000,
+        "__type__": "AcceleratorMagnet"
+    },
+    {
+        "name": "magnesium_diboride",
+        "type": "magnet",
+        "placement_rule": "",
+        "short_name": "Mg",
+        "rich_formatting": "i",
+        "block": {
+            "": {
+                "name": "qmd:accelerator_magnet",
+                "data": 1,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "strength": 0.5,
+        "efficiency": 0.8,
+        "heat": 580,
+        "power": 2000,
+        "__type__": "AcceleratorMagnet"
+    },
+    {
+        "name": "niobium_tin",
+        "type": "magnet",
+        "placement_rule": "",
+        "short_name": "NS",
+        "rich_formatting": "i",
+        "block": {
+            "": {
+                "name": "qmd:accelerator_magnet",
+                "data": 2,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "strength": 1.0,
+        "efficiency": 0.9,
+        "heat": 1140,
+        "power": 4000,
+        "__type__": "AcceleratorMagnet"
+    },
+    {
+        "name": "niobium_titanium",
+        "type": "magnet",
+        "placement_rule": "",
+        "short_name": "NT",
+        "rich_formatting": "i",
+        "block": {
+            "": {
+                "name": "qmd:accelerator_magnet",
+                "data": 3,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "strength": 2.0,
+        "efficiency": 0.95,
+        "heat": 2260,
+        "power": 8000,
+        "__type__": "AcceleratorMagnet"
+    },
+    {
+        "name": "bscco",
+        "type": "magnet",
+        "placement_rule": "",
+        "short_name": "BS",
+        "rich_formatting": "i",
+        "block": {
+            "": {
+                "name": "qmd:accelerator_magnet",
+                "data": 4,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "strength": 4.0,
+        "efficiency": 0.99,
+        "heat": 4500,
+        "power": 16000,
+        "__type__": "AcceleratorMagnet"
+    },
+    {
+        "name": "water",
+        "type": "cooler",
+        "placement_rule": "one cavity",
+        "short_name": "W ",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler1",
+                "data": 0,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 60,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "iron",
+        "type": "cooler",
+        "placement_rule": "one magnet",
+        "short_name": "Fe",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler1",
+                "data": 1,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 55,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "redstone",
+        "type": "cooler",
+        "placement_rule": "one cavity && one magnet",
+        "short_name": "Rs",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler1",
+                "data": 2,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 115,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "quartz",
+        "type": "cooler",
+        "placement_rule": "one redstone cooler",
+        "short_name": "Q ",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler1",
+                "data": 3,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 75,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "obsidian",
+        "type": "cooler",
+        "placement_rule": "two glowstone coolers",
+        "short_name": "Ob",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler1",
+                "data": 4,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 70,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "nether_brick",
+        "type": "cooler",
+        "placement_rule": "one obsidian cooler",
+        "short_name": "NB",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler1",
+                "data": 5,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 90,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "glowstone",
+        "type": "cooler",
+        "placement_rule": "two different magnets",
+        "short_name": "Gs",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler1",
+                "data": 6,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 110,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "lapis",
+        "type": "cooler",
+        "placement_rule": "one yoke && one magnet",
+        "short_name": "Lp",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler1",
+                "data": 7,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 130,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "gold",
+        "type": "cooler",
+        "placement_rule": "two iron coolers",
+        "short_name": "Au",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler1",
+                "data": 8,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 95,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "prismarine",
+        "type": "cooler",
+        "placement_rule": "two water coolers",
+        "short_name": "Pm",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler1",
+                "data": 9,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 85,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "slime",
+        "type": "cooler",
+        "placement_rule": "two lead coolers && one water cooler",
+        "short_name": "Sl",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler1",
+                "data": 10,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 165,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "end_stone",
+        "type": "cooler",
+        "placement_rule": "one yoke",
+        "short_name": "Es",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler1",
+                "data": 11,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 50,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "purpur",
+        "type": "cooler",
+        "placement_rule": "two end_stone coolers",
+        "short_name": "Pp",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler1",
+                "data": 12,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 100,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "diamond",
+        "type": "cooler",
+        "placement_rule": "one prismarine cooler && one gold cooler",
+        "short_name": "Dm",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler1",
+                "data": 13,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 185,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "emerald",
+        "type": "cooler",
+        "placement_rule": "one cavity && one prismarine cooler",
+        "short_name": "Em",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler1",
+                "data": 14,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 135,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "copper",
+        "type": "cooler",
+        "placement_rule": "one water cooler",
+        "short_name": "Cu",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler1",
+                "data": 15,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 80,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "tin",
+        "type": "cooler",
+        "placement_rule": "two lapis coolers",
+        "short_name": "Sn",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler2",
+                "data": 0,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 120,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "lead",
+        "type": "cooler",
+        "placement_rule": "one iron cooler",
+        "short_name": "Pb",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler2",
+                "data": 1,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 65,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "boron",
+        "type": "cooler",
+        "placement_rule": "one yoke && one cavity",
+        "short_name": "B ",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler2",
+                "data": 2,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 105,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "lithium",
+        "type": "cooler",
+        "placement_rule": "one boron cooler",
+        "short_name": "Li",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler2",
+                "data": 3,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 125,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "magnesium",
+        "type": "cooler",
+        "placement_rule": "one end_stone cooler && one prismarine cooler",
+        "short_name": "Mg",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler2",
+                "data": 4,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 150,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "manganese",
+        "type": "cooler",
+        "placement_rule": "one gold cooler && one quartz cooler",
+        "short_name": "Mn",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler2",
+                "data": 5,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 180,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "aluminium",
+        "type": "cooler",
+        "placement_rule": "one tin cooler && one quartz cooler",
+        "short_name": "Al",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler2",
+                "data": 6,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 175,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "silver",
+        "type": "cooler",
+        "placement_rule": "two arsenic coolers",
+        "short_name": "Ag",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler2",
+                "data": 7,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 160,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "fluorite",
+        "type": "cooler",
+        "placement_rule": "three gold coolers",
+        "short_name": "F ",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler2",
+                "data": 8,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 155,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "villaumite",
+        "type": "cooler",
+        "placement_rule": "one purpur cooler && one prismarine cooler",
+        "short_name": "Vi",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler2",
+                "data": 9,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 170,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "carobbiite",
+        "type": "cooler",
+        "placement_rule": "one end_stone cooler && one gold cooler",
+        "short_name": "Cb",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler2",
+                "data": 10,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 140,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "arsenic",
+        "type": "cooler",
+        "placement_rule": "two different cavity",
+        "short_name": "As",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler2",
+                "data": 11,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 145,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "nitrogen",
+        "type": "cooler",
+        "placement_rule": "one lapis cooler && one gold cooler",
+        "short_name": "N ",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler2",
+                "data": 12,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 195,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "helium",
+        "type": "cooler",
+        "placement_rule": "one boron cooler && one lapis cooler",
+        "short_name": "He",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler2",
+                "data": 13,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 200,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "enderium",
+        "type": "cooler",
+        "placement_rule": "three purpur coolers",
+        "short_name": "Ed",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler2",
+                "data": 14,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 190,
+        "__type__": "AcceleratorCooler"
+    },
+    {
+        "name": "cryotheum",
+        "type": "cooler",
+        "placement_rule": "three tin coolers",
+        "short_name": "Cr",
+        "rich_formatting": null,
+        "block": {
+            "": {
+                "name": "qmd:accelerator_cooler2",
+                "data": 15,
+                "is_tile_entity": true,
+                "properties": {}
+            }
+        },
+        "cooling": 205,
+        "__type__": "AcceleratorCooler"
+    }
+]

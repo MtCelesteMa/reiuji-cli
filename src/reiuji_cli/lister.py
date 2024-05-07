@@ -2,6 +2,7 @@
 
 from . import utils
 
+import enum
 import typing
 import pathlib
 
@@ -11,102 +12,41 @@ import rich
 import rich.table
 
 
-lister_app = typer.Typer(help="Commands for listing multiblock components.")
+class ComponentSet(enum.StrEnum):
+    """An enum for the different sets of components."""
+    NCO_TURBINE_ROTOR = "nco-turbine-rotor"
+    NCO_TURBINE_DYNAMO = "nco-turbine-dynamo"
+    QMD_LINEAR = "qmd-linear"
+    QMD_SYNCHROTRON = "qmd-synchrotron"
+    QMD_NUCLEOSYNTHESIS = "qmd-nucleosynthesis"
 
-nco_lister = typer.Typer(help="Commands for listing NuclearCraft: Overhauled components.")
-lister_app.add_typer(nco_lister, name="overhauled")
 
-
-@nco_lister.command("turbine-rotor")
-def list_nco_turbine_rotor_components(
-    components_file: typing.Annotated[typing.Optional[pathlib.Path], typer.Option("--components", "-C", help="Path to the components file.")] = None,
-    output: typing.Annotated[typing.Optional[pathlib.Path], typer.Option("--output", "-O", help="Path to the output file.")] = None,
+def list_components(
+        component_set: typing.Annotated[typing.Optional[ComponentSet], typer.Option("-c", "--component-set", help="The set of components to list. Ignored if -C is set.")] = None,
+        components_file: typing.Annotated[typing.Optional[pathlib.Path], typer.Option("--components", "-C", help="Path to the components file.")] = None,
+        output: typing.Annotated[typing.Optional[pathlib.Path], typer.Option("--output", "-O", help="Path to the output file.")] = None,
 ) -> None:
-    """List the components for a NuclearCraft: Overhauled turbine rotor."""
-    components = utils.load_component_list(components_file)
-    if isinstance(components, type(None)):
-        components = reiuji.designer.overhauled.turbine_rotor.models.DEFAULT_COMPONENTS
-    table = rich.table.Table(title="NuclearCraft: Overhauled Turbine Rotor Components")
-    table.add_column("Full Name")
-    table.add_column("Short Name")
-    for comp in components:
-        table.add_row(comp.full_name, comp.rich_short_name)
-    rich.print(table)
-    if isinstance(output, pathlib.Path):
-        utils.write_component_list(components, output)
-
-
-@nco_lister.command("turbine-dynamo")
-def list_nco_turbine_dynamo_components(
-    components_file: typing.Annotated[typing.Optional[pathlib.Path], typer.Option("--components", "-C", help="Path to the components file.")] = None,
-    output: typing.Annotated[typing.Optional[pathlib.Path], typer.Option("--output", "-O", help="Path to the output file.")] = None,
-) -> None:
-    """List the components for a NuclearCraft: Overhauled turbine dynamo."""
-    components = utils.load_component_list(components_file)
-    if isinstance(components, type(None)):
-        components = reiuji.designer.overhauled.turbine_dynamo.models.DEFAULT_COMPONENTS
-    table = rich.table.Table(title="NuclearCraft: Overhauled Turbine Dynamo Components")
-    table.add_column("Full Name")
-    table.add_column("Short Name")
-    for comp in components:
-        table.add_row(comp.full_name, comp.rich_short_name)
-    rich.print(table)
-    if isinstance(output, pathlib.Path):
-        utils.write_component_list(components, output)
-
-
-qmd_list = typer.Typer(help="Commands for listing QMD components.")
-lister_app.add_typer(qmd_list, name="qmd")
-
-
-@qmd_list.command("linear")
-def list_qmd_linear_components(
-    components_file: typing.Annotated[typing.Optional[pathlib.Path], typer.Option("--components", "-C", help="Path to the components file.")] = None,
-    output: typing.Annotated[typing.Optional[pathlib.Path], typer.Option("--output", "-O", help="Path to the output file.")] = None,
-) -> None:
-    """List the components for a QMD linear accelerator."""
-    components = utils.load_component_list(components_file)
-    if isinstance(components, type(None)):
-        components = reiuji.designer.qmd.linear.models.DEFAULT_COMPONENTS
-    table = rich.table.Table(title="QMD Linear Accelerator Components")
-    table.add_column("Full Name")
-    table.add_column("Short Name")
-    for comp in components:
-        table.add_row(comp.full_name, comp.rich_short_name)
-    rich.print(table)
-    if isinstance(output, pathlib.Path):
-        utils.write_component_list(components, output)
-
-
-@qmd_list.command("synchrotron")
-def list_qmd_synchrotron_components(
-    components_file: typing.Annotated[typing.Optional[pathlib.Path], typer.Option("--components", "-C", help="Path to the components file.")] = None,
-    output: typing.Annotated[typing.Optional[pathlib.Path], typer.Option("--output", "-O", help="Path to the output file.")] = None,
-) -> None:
-    """List the components for a QMD synchrotron."""
-    components = utils.load_component_list(components_file)
-    if isinstance(components, type(None)):
-        components = reiuji.designer.qmd.synchrotron.models.DEFAULT_COMPONENTS
-    table = rich.table.Table(title="QMD Synchrotron Components")
-    table.add_column("Full Name")
-    table.add_column("Short Name")
-    for comp in components:
-        table.add_row(comp.full_name, comp.rich_short_name)
-    rich.print(table)
-    if isinstance(output, pathlib.Path):
-        utils.write_component_list(components, output)
-
-
-@qmd_list.command("nucleosynthesis")
-def list_qmd_nucleosynthesis_components(
-    components_file: typing.Annotated[typing.Optional[pathlib.Path], typer.Option("--components", "-C", help="Path to the components file.")] = None,
-    output: typing.Annotated[typing.Optional[pathlib.Path], typer.Option("--output", "-O", help="Path to the output file.")] = None,
-) -> None:
-    """List the components for a QMD nucleosynthesis chamber."""
-    components = utils.load_component_list(components_file)
-    if isinstance(components, type(None)):
-        components = reiuji.designer.qmd.nucleosynthesis.models.DEFAULT_COMPONENTS
-    table = rich.table.Table(title="QMD Nucleosynthesis Components")
+    """List the components for a multiblock."""
+    if isinstance(component_set, type(None)) and isinstance(components_file, type(None)):
+        rich.print("[red][bold]ERROR:[/bold] Either --component-set or --components must be set.[/red]")
+        raise typer.Exit(code=1)
+    if isinstance(components_file, pathlib.Path):
+        components = utils.load_component_list(components_file)
+    else:
+        if component_set == ComponentSet.NCO_TURBINE_ROTOR:
+            components = reiuji.designer.overhauled.turbine_rotor.models.DEFAULT_COMPONENTS
+        elif component_set == ComponentSet.NCO_TURBINE_DYNAMO:
+            components = reiuji.designer.overhauled.turbine_dynamo.models.DEFAULT_COMPONENTS
+        elif component_set == ComponentSet.QMD_LINEAR:
+            components = reiuji.designer.qmd.linear.models.DEFAULT_COMPONENTS
+        elif component_set == ComponentSet.QMD_SYNCHROTRON:
+            components = reiuji.designer.qmd.synchrotron.models.DEFAULT_COMPONENTS
+        elif component_set == ComponentSet.QMD_NUCLEOSYNTHESIS:
+            components = reiuji.designer.qmd.nucleosynthesis.models.DEFAULT_COMPONENTS
+        else:
+            rich.print("[red][bold]ERROR:[/bold] Invalid component set.[/red]")
+            raise typer.Exit(code=1)
+    table = rich.table.Table(title="Components")
     table.add_column("Full Name")
     table.add_column("Short Name")
     for comp in components:
