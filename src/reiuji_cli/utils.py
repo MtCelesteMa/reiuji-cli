@@ -22,7 +22,7 @@ def load_limits(path: pathlib.Path | None) -> dict[str, tuple[int, int]]:
     return {}
 
 
-def load_component_list(path: pathlib.Path | None) -> list[reiuji.core.components.Component] | None:
+def load_component_list(path: pathlib.Path | None) -> list[reiuji.components.types.Component] | None:
     if isinstance(path, pathlib.Path):
         with path.open("r") as file:
             component_list = json.load(file)
@@ -30,7 +30,7 @@ def load_component_list(path: pathlib.Path | None) -> list[reiuji.core.component
     return None
 
 
-def write_component_list(components: list[reiuji.core.components.Component], path: pathlib.Path) -> None:
+def write_component_list(components: list[reiuji.components.types.Component], path: pathlib.Path) -> None:
     if path.suffix == ".json":
         with path.open("w") as file:
             ser = reiuji.io.serialization.SerializableMultiSequence.from_multi_sequence(reiuji.core.multi_sequence.MultiSequence(shape=(len(components),), seq=components))
@@ -53,7 +53,7 @@ def print_status(status: cp_model_pb2.CpSolverStatus) -> None:
 
 
 def write_design(
-        design: reiuji.core.multi_sequence.MultiSequence[reiuji.core.components.Component],
+        design: reiuji.core.multi_sequence.MultiSequence[reiuji.components.types.Component],
         path: pathlib.Path,
         *,
         schematic_type: str | None = None,

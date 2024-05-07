@@ -15,6 +15,7 @@ import rich.table
 class ComponentSet(enum.StrEnum):
     """An enum for the different sets of components."""
     NCO_TURBINE_ROTOR = "nco-turbine-rotor"
+    NCO_TURBINE_ROTOR_QMD = "nco-turbine-rotor-qmd"
     NCO_TURBINE_DYNAMO = "nco-turbine-dynamo"
     QMD_LINEAR = "qmd-linear"
     QMD_SYNCHROTRON = "qmd-synchrotron"
@@ -34,23 +35,26 @@ def list_components(
         components = utils.load_component_list(components_file)
     else:
         if component_set == ComponentSet.NCO_TURBINE_ROTOR:
-            components = reiuji.designer.overhauled.turbine_rotor.models.DEFAULT_COMPONENTS
+            components = reiuji.components.defaults.OVERHAULED_TURBINE_ROTOR_COMPONENTS
+        elif component_set == ComponentSet.NCO_TURBINE_ROTOR_QMD:
+            components = reiuji.components.defaults.OVERHAULED_TURBINE_ROTOR_COMPONENTS_QMD
         elif component_set == ComponentSet.NCO_TURBINE_DYNAMO:
-            components = reiuji.designer.overhauled.turbine_dynamo.models.DEFAULT_COMPONENTS
+            components = reiuji.components.defaults.OVERHAULED_TURBINE_DYNAMO_COMPONENTS
         elif component_set == ComponentSet.QMD_LINEAR:
-            components = reiuji.designer.qmd.linear.models.DEFAULT_COMPONENTS
+            components = reiuji.components.defaults.QMD_LINEAR_ACCELERATOR_COMPONENTS
         elif component_set == ComponentSet.QMD_SYNCHROTRON:
-            components = reiuji.designer.qmd.synchrotron.models.DEFAULT_COMPONENTS
+            components = reiuji.components.defaults.QMD_ACCELERATOR_COMPONENTS
         elif component_set == ComponentSet.QMD_NUCLEOSYNTHESIS:
-            components = reiuji.designer.qmd.nucleosynthesis.models.DEFAULT_COMPONENTS
+            components = reiuji.components.defaults.QMD_NUCLEOSYNTHESIS_COMPONENTS
         else:
             rich.print("[red][bold]ERROR:[/bold] Invalid component set.[/red]")
             raise typer.Exit(code=1)
     table = rich.table.Table(title="Components")
-    table.add_column("Full Name")
+    table.add_column("Name")
+    table.add_column("Internal Name")
     table.add_column("Short Name")
     for comp in components:
-        table.add_row(comp.full_name, comp.rich_short_name)
+        table.add_row(comp.display.rich_full_name, comp.full_name, comp.display.rich_short_name)
     rich.print(table)
     if isinstance(output, pathlib.Path):
         utils.write_component_list(components, output)

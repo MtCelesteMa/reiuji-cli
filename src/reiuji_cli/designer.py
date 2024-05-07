@@ -29,8 +29,8 @@ def design_nco_turbine_rotor(
     """Designs a NuclearCraft: Overhauled turbine rotor sequence."""
     limits = utils.load_limits(limits_file)
     components = utils.load_component_list(components_file)
-    if not is_qmd and isinstance(components, type(None)):
-        limits.update({"blade:super": (0, 0)})
+    if is_qmd and isinstance(components, type(None)):
+        components = reiuji.components.defaults.OVERHAULED_TURBINE_ROTOR_COMPONENTS_QMD
     designer = reiuji.designer.overhauled.turbine_rotor.TurbineRotorDesigner(
         length=length,
         optimal_expansion=expansion,
@@ -41,7 +41,7 @@ def design_nco_turbine_rotor(
     utils.print_status(status)
     if not isinstance(design, type(None)):
         for comp in design:
-            rich.print(comp.rich_short_name, end=" ")
+            rich.print(comp.display.rich_short_name, end=" ")
         print()
         for path in output:
             utils.write_design(design, path)
@@ -74,7 +74,7 @@ def design_nco_turbine_dynamo(
     if not isinstance(design, type(None)):
         for y in range(design.shape[0]):
             for x in range(design.shape[1]):
-                rich.print(design[y, x].rich_short_name, end=" ")
+                rich.print(design[y, x].display.rich_short_name, end=" ")
             print()
         for path in output:
             utils.write_design(design, path)
@@ -131,7 +131,7 @@ def design_qmd_linear(
         for x in range(design.shape[0]):
             for y in range(design.shape[2]):
                 for z in range(design.shape[1]):
-                    rich.print(design[x, z, y].rich_short_name, end=" ")
+                    rich.print(design[x, z, y].display.rich_short_name, end=" ")
                 print()
             print()
         for path in output:
@@ -185,7 +185,7 @@ def design_qmd_synchrotron(
         for y in range(design.shape[2]):
             for x in range(design.shape[0]):
                 for z in range(design.shape[1]):
-                    rich.print(design[x, z, y].rich_short_name, end=" ")
+                    rich.print(design[x, z, y].display.rich_short_name, end=" ")
                 print()
             print()
         for path in output:
@@ -239,7 +239,7 @@ def design_qmd_decelerator(
         for y in range(design.shape[2]):
             for x in range(design.shape[0]):
                 for z in range(design.shape[1]):
-                    rich.print(design[x, z, y].rich_short_name, end=" ")
+                    rich.print(design[x, z, y].display.rich_short_name, end=" ")
                 print()
             print()
         for path in output:
@@ -274,7 +274,7 @@ def design_qmd_nucleosynthesis(
         for y in range(design.shape[2]):
             for x in range(design.shape[0]):
                 for z in range(design.shape[1]):
-                    rich.print(design[x, z, y].rich_short_name, end=" ")
+                    rich.print(design[x, z, y].display.rich_short_name, end=" ")
                 print()
             print()
         for path in output:

@@ -386,7 +386,7 @@ $ reiuji list [OPTIONS]
 
 **Options**:
 
-* `-c, --component-set [nco-turbine-rotor|nco-turbine-dynamo|qmd-linear|qmd-synchrotron|qmd-nucleosynthesis]`: The set of components to list. Ignored if -C is set.
+* `-c, --component-set [nco-turbine-rotor|nco-turbine-rotor-qmd|nco-turbine-dynamo|qmd-linear|qmd-synchrotron|qmd-nucleosynthesis]`: The set of components to list. Ignored if -C is set.
 * `-C, --components PATH`: Path to the components file.
 * `-O, --output PATH`: Path to the output file.
 * `--help`: Show this message and exit.
