@@ -6,6 +6,7 @@ import json
 
 import rich
 import rich.markup
+import pydantic
 import reiuji
 from ortools.sat.python import cp_model
 from ortools.sat import cp_model_pb2
@@ -26,16 +27,14 @@ def load_limits(path: pathlib.Path | None) -> dict[str, tuple[int, int]]:
 def load_component_list(path: pathlib.Path | None) -> list[reiuji.components.types.Component] | None:
     if isinstance(path, pathlib.Path):
         with path.open("r") as file:
-            component_list = json.load(file)
-            return list(reiuji.io.serialization.SerializableMultiSequence(shape=(len(component_list),), seq=component_list).to_multi_sequence().seq)
+            return pydantic.TypeAdapter(list[reiuji.components.types.Component]).validate_json(file.read())
     return None
 
 
 def write_component_list(components: list[reiuji.components.types.Component], path: pathlib.Path) -> None:
     if path.suffix == ".json":
         with path.open("w") as file:
-            ser = reiuji.io.serialization.SerializableMultiSequence.from_multi_sequence(reiuji.core.multi_sequence.MultiSequence(shape=(len(components),), seq=components))
-            json.dump(ser.model_dump()["seq"], file, indent=4)
+            file.write(pydantic.TypeAdapter(list[reiuji.components.types.Component]).dump_json(components, indent=4).decode("utf-8"))
     else:
         rich.print(f"[yellow][bold]WARNING:[/bold] Unsupported file format: {path.suffix}[/yellow]")
 
