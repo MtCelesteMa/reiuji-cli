@@ -6,12 +6,12 @@ build-backend = "setuptools.build_meta"
 name = "reiuji_cli"
 version = "0.1.0-dev"
 dependencies = [
-    "reiuji @ git+https://github.com/MtCelesteMa/reiuji.git@00840545ac0fd465b3fdbb12e3d5e6db7211842e",
+    "reiuji-nuclearcraft == 0.1.0",
     "typer"
 ]
 requires-python = ">=3.12"
 authors = [
-    {name = "Celeste Ma", email = "gerry.y.ma@gmail.com"}
+    {name = "Celeste Ma", email = "mtcelestema@proton.me"}
 ]
 description = "A command line interface for Reiuji."
 readme = "README.md"
