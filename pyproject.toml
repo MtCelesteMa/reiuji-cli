@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "reiuji_cli"
 version = "0.1.0-dev"
 dependencies = [
-    "reiuji-nuclearcraft == 0.1.0",
+    "reiuji-nuclearcraft == 0.1.1",
     "typer"
 ]
 requires-python = ">=3.12"
@@ -30,4 +30,5 @@ reiuji = "reiuji_cli:app"
 
 [project.urls]
 Homepage = "https://github.com/MtCelesteMa/reiuji-cli"
+Repository = "https://github.com/MtCelesteMa/reiuji-cli"
 "Bug Tracker" = "https://github.com/MtCelesteMa/reiuji-cli/issues"
